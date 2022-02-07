@@ -15,7 +15,7 @@
                         <p class="mb-0">{!! nl2br(e($micropost->content)) !!}</p>
                     </div>
                     <div>
-                        @if(!$user->is_favorited($micropost->id))
+                        @if(!Auth::user()->is_favorited($micropost->id))
                             {{-- お気に入り登録ボタンのフォーム --}}
                             {!! Form::open(['route' => ['favorites.favorite', $micropost->id], 'method' => 'post']) !!}
                                 {!! Form::submit('Favorite', ['class' => 'btn btn-primary btn-sm']) !!}
